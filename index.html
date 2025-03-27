@@ -47,7 +47,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 320px;
-            background-color: #f0f8ff; /* Cor de fundo suave (azul claro) */
+            background-color: #f0f8ff !important; /* Cor de fundo suave (azul claro) */
             color: #333333; /* Cor de texto amigável */
             border-radius: 12px; /* Borda arredondada */
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
@@ -56,26 +56,33 @@
             font-size: 18px;
             font-family: 'Poppins', sans-serif; /* Fonte mais dinâmica */
             transition: transform 0.3s ease-in-out;
+            overflow: hidden; /* Garantir que o texto não ultrapasse a área visível */
         }
 
         .container:hover {
             transform: translateY(-5px); /* Efeito leve ao passar o mouse */
         }
 
+        /* Estilo do texto dentro do quadro de recados */
         .texto {
             line-height: 1.6;
             margin-bottom: 15px;
+            animation: subir 10s linear infinite; /* Animação do texto subindo */
+        }
+
+        /* Animação para o texto subir automaticamente */
+        @keyframes subir {
+            0% {
+                transform: translateY(100%); /* Começa fora da tela, na parte inferior */
+            }
+            100% {
+                transform: translateY(-100%); /* Vai até fora da tela, na parte superior */
+            }
         }
 
         .texto span {
             font-weight: 600;
             color: #007bff;
-        }
-
-        /* Animação do texto */
-        @keyframes subir {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
         }
     </style>
     <script>
@@ -94,11 +101,10 @@
     <div class="container">
         <div class="texto">
             <p><span>NÃO ESQUEÇA DE ABRIR CA</span><br><br>
-            TREINAMENTO GERAL MEDICINA DO TRABALHO RS DIA 26/02<br><br><br><br>
+            ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02<br><br><br><br>
             <span>NÃO ESQUEÇA DE ASSINAR O PONDO NO PMÓVEL</span>, PRAZO ATÉ 02/06
             </p>
         </div>
     </div>
 </body>
 </html>
-
