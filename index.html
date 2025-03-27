@@ -10,13 +10,13 @@
             background-color: #f8f9fa;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Alinhando à esquerda */
+            align-items: flex-start;
             justify-content: flex-start;
             height: 100vh;
+            padding-left: 20px;
             gap: 20px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial', sans-serif;
             position: relative;
-            padding: 50px;
         }
 
         .botao {
@@ -29,6 +29,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            display: block;
             text-align: center;
             font-weight: bold;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -40,79 +41,53 @@
             transform: scale(1.05);
         }
 
-        /* Área da mensagem ajustada */
-        .mensagem {
+        /* Estilização do texto flutuante */
+        .mensagens {
             position: absolute;
-            bottom: 100px; /* Mantendo próximo do último botão */
+            bottom: 70px; /* Ajustado para não ultrapassar os botões */
             left: 50%;
             transform: translateX(-50%);
-            font-size: 24px; /* Texto maior */
+            font-size: 18px;
             font-weight: bold;
             color: #007bff;
             text-align: center;
-            width: 800px;
-            height: 60px; /* Espaço suficiente para frases longas */
-            line-height: 40px;
+            white-space: nowrap;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 50px;
         }
 
-        /* Efeito de rotação das frases */
-        .mensagem span {
-            display: none; /* Todas começam escondidas */
-        }
-
-        .mensagem span.ativo {
+        .mensagens span {
             display: block;
-            animation: fadein 1s ease-in-out, fadeout 1s ease-in-out 4s forwards;
+            animation: subir 10s linear infinite;
         }
 
-        @keyframes fadein {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeout {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(-10px); }
+        /* Animação para subir o texto */
+        @keyframes subir {
+            0% { transform: translateY(100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-50px); opacity: 0; }
         }
     </style>
+    <script>
+        function redirecionar(link) {
+            window.location.href = link;
+        }
+    </script>
 </head>
 <body>
-
     <button class="botao" onclick="redirecionar('https://www.google.com')">Preventivas</button>
     <button class="botao" onclick="redirecionar('https://revistamarieclaire.globo.com/')">Faturas</button>
     <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
     <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
 
-    <!-- Área de mensagens -->
-    <div class="mensagem">
-        <span class="ativo">NÃO ESQUEÇA DE ABRIR CA</span>
+    <!-- Texto subindo sem fundo quadrado -->
+    <div class="mensagens">
+        <span>NÃO ESQUEÇA DE ABRIR CA</span>
         <span>ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02</span>
         <span>EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA</span>
         <span>NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06</span>
     </div>
-
-    <script>
-        function redirecionar(link) {
-            window.location.href = link;
-        }
-
-        function alternarMensagens() {
-            const mensagens = document.querySelectorAll(".mensagem span");
-            let index = 0;
-
-            setInterval(() => {
-                mensagens.forEach(msg => msg.classList.remove("ativo")); // Remove "ativo" de todas
-                mensagens[index].classList.add("ativo"); // Ativa a mensagem atual
-                index = (index + 1) % mensagens.length; // Vai para a próxima
-            }, 5000); // Troca a cada 5 segundos
-        }
-
-        window.onload = alternarMensagens;
-    </script>
-
 </body>
 </html>
+
