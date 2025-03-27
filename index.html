@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Sala de Espera</title>
+    <title>Sala de Espera</title>
     <style>
         body {
-            background-color: #f8f9fa; /* Fundo mais claro, quase branco */
+            background-color: #f8f9fa;
             display: flex;
-            justify-content: flex-start;
-            align-items: flex-start; /* Alinhar os botões à esquerda */
-            height: 100vh;
             flex-direction: column;
-            gap: 20px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 100vh;
             padding-left: 20px;
+            gap: 20px;
         }
         .botao {
             background-color: #007bff;
@@ -21,7 +21,7 @@
             padding: 15px 30px;
             font-size: 18px;
             border: none;
-            border-radius: 5px; /* Botões mais quadrados */
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -30,12 +30,35 @@
             font-weight: bold;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             width: 200px;
-            text-align: center;
-            margin-left: 0; /* Garantir alinhamento à esquerda */
         }
         .botao:hover {
             background-color: #0056b3;
             transform: scale(1.05);
+        }
+        .container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+        .texto {
+            position: relative;
+            animation: subir 5s linear infinite;
+        }
+        @keyframes subir {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
         }
     </style>
     <script>
@@ -47,10 +70,18 @@
 <body>
     <button class="botao" onclick="redirecionar('https://www.google.com')">Preventivas</button>
     <button class="botao" onclick="redirecionar('https://revistamarieclaire.globo.com/')">Faturas</button>
- <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
- <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
-
-
+    <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
+    <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
     
+    <div class="container">
+        <div class="texto">NÃO ESQUEÇA DE ABRIR CA<BR><BR>
+
+TREINAMENTO GERAL  MEDICINA DO TRABALHO RS DIA 26/02
+<BR><BR>
+<BR><BR>
+NÃO ESQUEÇA DE ASSINAR O PONDO NO PMÓVEL, PRAZO ATÉ 02/06
+
+</div>
+    </div>
 </body>
 </html>
