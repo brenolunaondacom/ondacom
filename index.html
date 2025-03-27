@@ -10,12 +10,13 @@
             background-color: #f8f9fa;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-start; /* Alinhando à esquerda */
             justify-content: flex-start;
             height: 100vh;
-            padding-left: 20px;
             gap: 20px;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            padding: 50px;
         }
 
         .botao {
@@ -28,7 +29,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: block;
             text-align: center;
             font-weight: bold;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -40,72 +40,79 @@
             transform: scale(1.05);
         }
 
-        /* Estilo do quadro de recados */
-        .container {
+        /* Área da mensagem ajustada */
+        .mensagem {
             position: absolute;
-            bottom: 10px;
+            bottom: 100px; /* Mantendo próximo do último botão */
             left: 50%;
             transform: translateX(-50%);
-            width: 320px;
-            background-color: #f0f8ff !important; /* Cor de fundo suave (azul claro) */
-            color: #333333; /* Cor de texto amigável */
-            border-radius: 12px; /* Borda arredondada */
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
-            padding: 20px;
-            text-align: center;
-            font-size: 18px;
-            font-family: 'Poppins', sans-serif; /* Fonte mais dinâmica */
-            transition: transform 0.3s ease-in-out;
-            overflow: hidden; /* Garantir que o texto não ultrapasse a área visível */
-        }
-
-        .container:hover {
-            transform: translateY(-5px); /* Efeito leve ao passar o mouse */
-        }
-
-        /* Estilo do texto dentro do quadro de recados */
-        .texto {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            animation: subir 10s linear infinite; /* Animação do texto subindo */
-        }
-
-        /* Animação para o texto subir automaticamente */
-        @keyframes subir {
-            0% {
-                transform: translateY(100%); /* Começa fora da tela, na parte inferior */
-            }
-            100% {
-                transform: translateY(-100%); /* Vai até fora da tela, na parte superior */
-            }
-        }
-
-        .texto span {
-            font-weight: 600;
+            font-size: 24px; /* Texto maior */
+            font-weight: bold;
             color: #007bff;
+            text-align: center;
+            width: 800px;
+            height: 60px; /* Espaço suficiente para frases longas */
+            line-height: 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Efeito de rotação das frases */
+        .mensagem span {
+            display: none; /* Todas começam escondidas */
+        }
+
+        .mensagem span.ativo {
+            display: block;
+            animation: fadein 1s ease-in-out, fadeout 1s ease-in-out 4s forwards;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeout {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-10px); }
         }
     </style>
-    <script>
-        function redirecionar(link) {
-            window.location.href = link;
-        }
-    </script>
 </head>
 <body>
+
     <button class="botao" onclick="redirecionar('https://www.google.com')">Preventivas</button>
     <button class="botao" onclick="redirecionar('https://revistamarieclaire.globo.com/')">Faturas</button>
     <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
     <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
 
-    <!-- Quadro de recados -->
-    <div >
-        <div class="texto">
-            <p><span>NÃO ESQUEÇA DE ABRIR CA><br><br>
-            ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02<br><br><br><br>
-                EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA<br><br><br><br>
-            <span>NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06</span
-            </p>
-        </div>
+    <!-- Área de mensagens -->
+    <div class="mensagem">
+        <span class="ativo">NÃO ESQUEÇA DE ABRIR CA</span>
+        <span>ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02</span>
+        <span>EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA</span>
+        <span>NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06</span>
     </div>
+
+    <script>
+        function redirecionar(link) {
+            window.location.href = link;
+        }
+
+        function alternarMensagens() {
+            const mensagens = document.querySelectorAll(".mensagem span");
+            let index = 0;
+
+            setInterval(() => {
+                mensagens.forEach(msg => msg.classList.remove("ativo")); // Remove "ativo" de todas
+                mensagens[index].classList.add("ativo"); // Ativa a mensagem atual
+                index = (index + 1) % mensagens.length; // Vai para a próxima
+            }, 5000); // Troca a cada 5 segundos
+        }
+
+        window.onload = alternarMensagens;
+    </script>
+
 </body>
 </html>
