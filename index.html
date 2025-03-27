@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala de Espera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #f8f9fa;
@@ -14,7 +15,9 @@
             height: 100vh;
             padding-left: 20px;
             gap: 20px;
+            font-family: 'Arial', sans-serif;
         }
+
         .botao {
             background-color: #007bff;
             color: white;
@@ -31,31 +34,45 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             width: 200px;
         }
+
         .botao:hover {
             background-color: #0056b3;
             transform: scale(1.05);
         }
+
+        /* Estilo do quadro de recados */
         .container {
             position: absolute;
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 300px;
-            height: 150px;
-            background-color: black;
-            color: white;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 320px;
+            background-color: #f0f8ff; /* Cor de fundo suave (azul claro) */
+            color: #333333; /* Cor de texto amigável */
+            border-radius: 12px; /* Borda arredondada */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+            padding: 20px;
             text-align: center;
             font-size: 18px;
-            border-radius: 10px;
+            font-family: 'Poppins', sans-serif; /* Fonte mais dinâmica */
+            transition: transform 0.3s ease-in-out;
         }
+
+        .container:hover {
+            transform: translateY(-5px); /* Efeito leve ao passar o mouse */
+        }
+
         .texto {
-            position: relative;
-            animation: subir 5s linear infinite;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
+
+        .texto span {
+            font-weight: 600;
+            color: #007bff;
+        }
+
+        /* Animação do texto */
         @keyframes subir {
             0% { transform: translateY(100%); }
             100% { transform: translateY(-100%); }
@@ -72,16 +89,16 @@
     <button class="botao" onclick="redirecionar('https://revistamarieclaire.globo.com/')">Faturas</button>
     <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
     <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
-    
+
+    <!-- Quadro de recados -->
     <div class="container">
-        <div class="texto">NÃO ESQUEÇA DE ABRIR CA<BR><BR>
-
-TREINAMENTO GERAL  MEDICINA DO TRABALHO RS DIA 26/02
-<BR><BR>
-<BR><BR>
-NÃO ESQUEÇA DE ASSINAR O PONDO NO PMÓVEL, PRAZO ATÉ 02/06
-
-</div>
+        <div class="texto">
+            <p><span>NÃO ESQUEÇA DE ABRIR CA</span><br><br>
+            TREINAMENTO GERAL MEDICINA DO TRABALHO RS DIA 26/02<br><br><br><br>
+            <span>NÃO ESQUEÇA DE ASSINAR O PONDO NO PMÓVEL</span>, PRAZO ATÉ 02/06
+            </p>
+        </div>
     </div>
 </body>
 </html>
+
