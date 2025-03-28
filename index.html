@@ -3,103 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sala de Espera</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Layout Principal</title>
     <style>
         body {
-            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            height: 100vh;
-            padding-left: 20px;
-            gap: 20px;
-            font-family: 'Arial', sans-serif;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .botao {
-            background-color: #007bff;
-            color: white;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .button-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .button {
             padding: 15px 30px;
             font-size: 18px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            width: 200px;
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .botao:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Estilo da caixa de "BOM DIA" */
-        .caixa-bom-dia {
-            display: none;
-            background-color: #ffeb3b; /* Amarelo claro */
-            color: #333;
+        .preventivas { background-color: #4CAF50; }
+        .faturas { background-color: #2196F3; }
+        .vistorias { background-color: #9C27B0; }
+
+        .reminders {
+            background-color: white;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reminder-text {
+            position: absolute;
+            width: 100%;
+            animation: scrollUp 10s linear infinite;
+        }
+
+        @keyframes scrollUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
             text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            width: 200px;
-            margin-top: 20px;
-            transition: opacity 1s ease-in-out;
         }
     </style>
-    <script>
-        function redirecionar(link) {
-            window.location.href = link;
-        }
-
-        function mostrarCaixa() {
-            const caixa = document.getElementById("caixaBomDia");
-
-            // Mostrar a caixa
-            caixa.style.display = "block";
-            caixa.style.opacity = "1";
-
-            // Esconder a caixa após 5 segundos
-            setTimeout(() => {
-                caixa.style.opacity = "0"; // Desaparece com um fade
-                setTimeout(() => {
-                    caixa.style.display = "none"; // Realmente esconde a caixa após o fade
-                }, 1000); // Espera o tempo do fade (1s) antes de esconder
-
-            }, 5000); // A caixa desaparece após 5 segundos visível
-        }
-
-        // Exibir a caixa imediatamente ao carregar a página
-        window.onload = function() {
-            mostrarCaixa();
-            // Iniciar o loop de 10 segundos (5s visível, 5s invisível)
-            setInterval(mostrarCaixa, 10000);
-        };
-    </script>
 </head>
 <body>
-    <button class="botao" onclick="redirecionar('https://www.google.com')">Preventivas</button>
-    <button class="botao" onclick="redirecionar('https://revistamarieclaire.globo.com/')">Faturas</button>
-    <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
-    <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
-
-    <!-- Caixa de Bom Dia 
-    <div id="caixaBomDia" class="caixa-bom-dia">
-      não esqueça de abrir CA
-<br><br>
-
-ATENÇÃO TIME DE PREVENTIVAS:  não esqueça<br> do teste <br> de<br> fumaça<br>
-
-
-    </div> -->
-
+    <div class="container">
+        <div class="button-section">
+            <button class="button preventivas">Preventivas</button>
+            <button class="button faturas">Faturas</button>
+            <button class="button vistorias">Vistorias</button>
+        </div>
+        <div class="reminders">
+            <h2>Lembretes</h2>
+            <div class="reminder-text">
+                <p>Revisão preventiva dia 05/04</p>
+                <p>Vencimento fatura #123 dia 10/04</p>
+                <p>Vistoria agendada para 15/04</p>
+                <p>Manutenção preventiva dia 20/04</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
