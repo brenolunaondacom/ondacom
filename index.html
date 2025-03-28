@@ -19,13 +19,16 @@
             font-family: 'Poppins', sans-serif;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+            position: relative; /* Para garantir que o container fixo funcione bem */
         }
 
         .botoes-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 15px;
+            width: 100%;
+            max-width: 300px; /* Limita a largura dos botões */
         }
 
         .botao {
@@ -37,12 +40,10 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
             text-align: center;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            min-width: 180px;
-            flex: 1 1 auto;
+            width: 100%; /* Garante que o botão ocupe o espaço disponível */
         }
 
         .botao:hover {
@@ -65,6 +66,7 @@
             padding: 20px;
             text-align: center;
             overflow: hidden;
+            z-index: 1; /* Garante que o quadro fique acima de outros elementos */
         }
 
         .texto {
@@ -87,9 +89,12 @@
 
         /* Responsividade */
         @media (max-width: 600px) {
+            .botoes-container {
+                max-width: 100%;
+            }
             .botao {
-                width: 100%;
-                margin-bottom: 10px;
+                font-size: 14px;
+                padding: 10px 20px;
             }
             .container {
                 width: 95%;
