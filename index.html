@@ -24,10 +24,15 @@
             font-family: 'Poppins', sans-serif;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            padding: 15px;
             min-height: 100vh;
             position: relative;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 10px;
         }
 
         .botoes-container {
@@ -37,7 +42,8 @@
             width: 100%;
             max-width: 300px;
             margin: 0 auto;
-            z-index: 2; /* Garante que os botões fiquem acima do quadro */
+            padding-bottom: 20px; /* Espaço para evitar sobreposição */
+            z-index: 2;
         }
 
         .botao {
@@ -69,22 +75,22 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 400px;
-            max-height: 30vh; /* Limita a altura do quadro */
+            max-height: 20vh; /* Reduz a altura para não ocupar muito espaço */
             background-color: #f0f8ff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            padding: 10px;
             text-align: center;
             overflow: hidden;
-            z-index: 1; /* Fica abaixo dos botões */
+            z-index: 1;
         }
 
         .texto {
             color: #333;
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 12px; /* Reduz o tamanho da fonte para caber melhor */
+            line-height: 1.4;
             animation: subir 15s linear infinite;
-            padding: 10px 0;
+            padding: 5px 0;
         }
 
         .texto span {
@@ -108,30 +114,32 @@
             }
             .container {
                 width: 95%;
-                padding: 10px;
-                max-height: 25vh; /* Ajusta a altura em telas menores */
+                max-height: 15vh; /* Ainda menor em telas pequenas */
+                padding: 8px;
             }
             .texto {
-                font-size: 12px;
+                font-size: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="botoes-container">
-        <button class="botao" onclick="window.location.href='https://www.google.com'">Preventivas</button>
-        <button class="botao" onclick="window.location.href='https://revistamarieclaire.globo.com/'">Faturas</button>
-        <button class="botao" onclick="window.location.href='https://www.globo.com'">Demais</button>
-        <button class="botao" onclick="window.location.href='https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4'">Zoho</button>
-    </div>
+    <div class="main-container">
+        <div class="botoes-container">
+            <button class="botao" onclick="window.location.href='https://www.google.com'">Preventivas</button>
+            <button class="botao" onclick="window.location.href='https://revistamarieclaire.globo.com/'">Faturas</button>
+            <button class="botao" onclick="window.location.href='https://www.globo.com'">Demais</button>
+            <button class="botao" onclick="window.location.href='https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4'">Zoho</button>
+        </div>
 
-    <!-- Quadro de recados -->
-    <div class="container">
-        <div class="texto">
-            <p><span>NÃO ESQUEÇA DE ABRIR CA</span><br><br>
-            ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02<br><br>
-            EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA<br><br>
-            <span>NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06</span></p>
+        <!-- Quadro de recados -->
+        <div class="container">
+            <div class="texto">
+                <p><span>NÃO ESQUEÇA DE ABRIR CA</span><br><br>
+                ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02<br><br>
+                EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA<br><br>
+                <span>NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06</span></p>
+            </div>
         </div>
     </div>
 </body>
