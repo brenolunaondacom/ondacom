@@ -1,146 +1,239 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Sala de Espera</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 10px;
-        }
-
-        .botoes-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            padding-bottom: 0px; /* Espaço para evitar sobreposição */
-            z-index: 2;
-        }
-
-        .botao {
-            background-color: #007bff;
-            color: white;
-            padding: 12px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            width: 100%;
-        }
-
-        .botao:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Quadro de recados */
-        .container {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 400px;
-            max-height: 20vh; /* Reduz a altura para não ocupar muito espaço */
-            background-color: #f0f8ff;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            text-align: center;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .texto {
-            color: #333;
-            font-size: 12px; /* Reduz o tamanho da fonte para caber melhor */
-            line-height: 1.4;
-            animation: subir 15s linear infinite;
-            padding: 5px 0;
-        }
-
-        .texto span {
-            font-weight: 600;
-            color: #007bff;
-        }
-
-        @keyframes subir {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
-        }
-
-        /* Responsividade */
-        @media (max-width: 600px) {
-            .botoes-container {
-                max-width: 100%;
-            }
-            .botao {
-                font-size: 14px;
-                padding: 10px 20px;
-            }
-            .container {
-                width: 95%;
-                max-height: 15vh; /* Ainda menor em telas pequenas */
-                padding: 8px;
-            }
-            .texto {
-                font-size: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="main-container">
-        <div class="botoes-container">
-            <button class="botao" onclick="window.location.href='https://www.google.com'">Preventivas</button>
-            <button class="botao" onclick="window.location.href='https://revistamarieclaire.globo.com/'">Faturas</button>
-            <button class="botao" onclick="window.location.href='https://www.globo.com'">Demais</button>
-            <button class="botao" onclick="window.location.href='https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4'">Zoho</button>
-        </div>
-
-        <!-- Quadro de recados -->
-        <div class="container">
-            <div class="texto">
-                <p><span>NÃO ESQUEÇA DE ABRIR CA</span><br><br>
-                ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02<br><br>
-                EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA<br><br>
-                <span>NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06</span></p>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+ <html lang="pt">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Jornada WEB 1.7 beta</title>
+     <style>
+         body {
+             font-family: 'Arial', sans-serif;
+             background-color: #e6f7ff; /* Azul bem clarinho */
+             color: #333;
+             margin: 0;
+             padding: 20px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+         }
+         .container {
+             background-color: #ffffff;
+             padding: 20px;
+             border-radius: 10px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+             max-width: 800px; /* Aumentei a largura para acomodar mais colunas */
+             width: 100%;
+         }
+         h2 {
+             color: #007bff; /* Azul mais forte para o título */
+             margin-bottom: 20px;
+         }
+         .button-container {
+             display: flex;
+             flex-direction: column;
+             align-items: flex-start; /* Alinha os botões à esquerda */
+             gap: 10px;
+         }
+         button {
+             background-color: #66b3ff; /* Azul mais claro */
+             color: white;
+             border: none;
+             padding: 12px 20px;
+             font-size: 16px;
+             cursor: pointer;
+             border-radius: 25px; /* Botões mais arredondados */
+             transition: background-color 0.3s ease, transform 0.2s ease;
+             text-align: center;
+             width: fit-content; /* Largura proporcional ao texto */
+             white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+         }
+         button:hover {
+             background-color: #4da6ff; /* Azul um pouco mais escuro ao passar o mouse */
+             transform: translateY(-2px); /* Efeito de levantar */
+         }
+         /* Estilo específico para o botão "Encerramento" */
+         button[onclick="preencherTotal('Encerramento')"] {
+             background-color: #ffcccc; /* Vermelho clarinho (quase rosado) */
+         }
+         button[onclick="preencherTotal('Encerramento')"]:hover {
+             background-color: #ff9999; /* Vermelho um pouco mais escuro ao passar o mouse */
+         }
+         /* Estilo para o popup personalizado */
+         .popup {
+             display: none;
+             position: fixed;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             background-color: white;
+             padding: 20px;
+             border-radius: 10px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+             z-index: 1000;
+         }
+         .popup button {
+             display: block;
+             width: 100%;
+             margin-bottom: 10px;
+         }
+         table {
+             width: 100%;
+             margin-top: 20px;
+             border-collapse: collapse;
+             border-radius: 10px;
+             overflow: hidden;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+         th, td {
+             border: 1px solid #ddd;
+             padding: 12px;
+             text-align: left;
+         }
+         th {
+             background-color: #007bff;
+             color: white;
+             font-weight: bold;
+         }
+         tr:nth-child(even) {
+             background-color: #f9f9f9;
+         }
+         tr:hover {
+             background-color: #f1f1f1;
+         }
+     </style>
+ </head>
+ <body>
+     <div class="container">
+         <h2>Coletar Dados</h2>
+         <div class="button-container">
+             <button onclick="coletarDados('Tratamento UNIC')">Tratamento UNIC</button>
+             <button onclick="coletarDados('Tratamento de FAT')">Tratamento de FAT</button>
+             <button onclick="coletarDados('Preventivas')">Preventivas</button>
+             <button onclick="coletarDados('Outros')">Outros</button>
+             <button onclick="coletarDados('Tratamento de WO')">Tratamento de WO</button>
+             <button onclick="coletarDados('Reuniões')">Reuniões</button>
+             <button onclick="preencherTotal('Intervalo')">Intervalo</button>
+             <button onclick="abrirPopupNop()">NOP</button>
+             <button onclick="preencherTotal('Encerramento')">Encerramento</button>
+         </div>
+ 
+         <!-- Popup para seleção do NOP -->
+         <div id="popupNop" class="popup">
+             <h3>Escolha uma opção:</h3>
+             <button onclick="selecionarNop('PREVENTIVA')">PREVENTIVA</button>
+             <button onclick="selecionarNop('WO')">WO</button>
+             <button onclick="selecionarNop('FATURAS')">FATURAS</button>
+         </div>
+ 
+         <table id="dadosTabela">
+             <thead>
+                 <tr>
+                     <th>Nome</th>
+                     <th>Notificação</th>
+                     <th>Atividade</th>
+                     <th>Matrícula - Nome</th>
+                     <th>Título E-mail</th>
+                     <th>Descrição</th>
+                     <th>Data</th>
+                     <th>Hora</th>
+                 </tr>
+             </thead>
+             <tbody>
+             </tbody>
+         </table>
+     </div>
+ 
+     <script>
+         let nomeUsuario = prompt("Digite seu nome:");
+ 
+         function coletarDados(notificacao) {
+             let descricao = prompt("Digite as informações para " + notificacao);
+             adicionarLinha(nomeUsuario, notificacao, "", "", "", descricao);
+         }
+ 
+         function abrirPopupNop() {
+             // Exibe o popup de seleção do NOP
+             document.getElementById("popupNop").style.display = "block";
+         }
+ 
+         function fecharPopupNop() {
+             // Fecha o popup de seleção do NOP
+             document.getElementById("popupNop").style.display = "none";
+         }
+ 
+         function selecionarNop(opcao) {
+             // Fecha o popup de seleção
+             fecharPopupNop();
+ 
+             // Abre os demais popups sequencialmente
+             let descricao = prompt("Breve descrição da inconformidade");
+             if (!descricao) return; // Se o usuário cancelar, interrompe o processo
+ 
+             let matricula = prompt("Matrícula - Nome");
+             if (!matricula) return;
+ 
+             let tituloEmail = prompt("Título do E-mail");
+             if (!tituloEmail) return;
+ 
+             // Adiciona a linha na tabela
+             adicionarLinha(nomeUsuario, "NOP", opcao, matricula, tituloEmail, descricao);
+         }
+ 
+         function preencherTotal(valor) {
+             adicionarLinha(nomeUsuario, valor, valor, valor, valor, valor);
+         }
+ 
+         function adicionarLinha(nome, notificacao, atividade, matricula, tituloEmail, descricao) {
+             let tabela = document.getElementById("dadosTabela").getElementsByTagName('tbody')[0];
+             let novaLinha = tabela.insertRow();
+ 
+             // Captura a data e a hora atuais
+             let agora = new Date();
+             let data = agora.toLocaleDateString(); // Formato de data local
+             let hora = agora.toLocaleTimeString(); // Formato de hora local
+ 
+             // Insere os dados na tabela
+             novaLinha.insertCell(0).textContent = nome; // Nome
+             novaLinha.insertCell(1).textContent = notificacao; // Notificação
+             novaLinha.insertCell(2).textContent = atividade; // Atividade
+             novaLinha.insertCell(3).textContent = matricula; // Matrícula - Nome
+             novaLinha.insertCell(4).textContent = tituloEmail; // Título E-mail
+             novaLinha.insertCell(5).textContent = descricao; // Descrição
+             novaLinha.insertCell(6).textContent = data; // Data
+             novaLinha.insertCell(7).textContent = hora; // Hora
+ 
+             // Envia os dados para o Google Sheets
+             enviarParaGoogleSheets(nome, notificacao, atividade, matricula, tituloEmail, descricao, data, hora);
+         }
+ 
+         async function enviarParaGoogleSheets(nome, notificacao, atividade, matricula, tituloEmail, descricao, data, hora) {
+             const url = "https://script.google.com/macros/s/AKfycbybJr3rOtqoS-_hCgVOx_sEpIsyJsSecD1CtcyT5MRgDeIoJW5hQzOny8-eOe0XldOb/exec"; // URL do Web App
+             const dados = {
+                 nome: nome,
+                 notificacao: notificacao,
+                 atividade: atividade,
+                 matricula: matricula,
+                 tituloEmail: tituloEmail,
+                 descricao: descricao,
+                 data: data,
+                 hora: hora,
+             };
+ 
+             try {
+                 const resposta = await fetch(url, {
+                     method: "POST",
+                     body: JSON.stringify(dados),
+                 });
+ 
+                 if (resposta.ok) {
+                     console.log("Dados enviados com sucesso!");
+                 } else {
+                     console.error("Erro ao enviar dados:", resposta.statusText);
+                 }
+             } catch (erro) {
+                 console.error("Erro na requisição:", erro);
+             }
+         }
+     </script>
+ </body>
+ </html>
