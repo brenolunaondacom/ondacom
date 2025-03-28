@@ -16,6 +16,7 @@
             padding-left: 20px;
             gap: 20px;
             font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Previne a rolagem */
         }
 
         .botao {
@@ -40,50 +41,29 @@
             transform: scale(1.05);
         }
 
-        /* Estilo do quadro de recados */
-        .container {
+        /* Estilo do texto animado */
+        .texto-animado {
             position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 320px;
-            background-color: #f0f8ff !important; /* Cor de fundo suave (azul claro) */
-            color: #333333; /* Cor de texto amigável */
-            border-radius: 12px; /* Borda arredondada */
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
-            padding: 20px;
-            text-align: center;
-            font-size: 18px;
-            font-family: 'Poppins', sans-serif; /* Fonte mais dinâmica */
-            transition: transform 0.3s ease-in-out;
-            overflow: hidden; /* Garantir que o texto não ultrapasse a área visível */
+            bottom: 10px; /* Garante que o texto não ultrapasse a área dos botões */
+            left: 20px;
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #007bff;
+            white-space: nowrap;
+            animation: subir 10s linear infinite;
         }
 
-        .container:hover {
-            transform: translateY(-5px); /* Efeito leve ao passar o mouse */
-        }
-
-        /* Estilo do texto dentro do quadro de recados */
-        .texto {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            animation: subir 10s linear infinite; /* Animação do texto subindo */
-        }
-
-        /* Animação para o texto subir automaticamente */
+        /* Animação para o texto subir */
         @keyframes subir {
             0% {
                 transform: translateY(100%); /* Começa fora da tela, na parte inferior */
             }
             100% {
-                transform: translateY(-100%); /* Vai até fora da tela, na parte superior */
+                transform: translateY(-300%); /* Vai até fora da tela, na parte superior */
             }
         }
 
-        .texto span {
-            font-weight: 600;
-            color: #007bff;
-        }
     </style>
     <script>
         function redirecionar(link) {
@@ -97,15 +77,20 @@
     <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
     <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
 
-    <!-- Quadro de recados -->
-    <div class="container">
-        <div class="texto">
-            <p><span><br><br>
-           *****TENHA UM BOM DIA DE TRABALHO <br><br><br><br>
-            
-            </p>
-        </div>
+    <!-- Texto animado -->
+    <div class="texto-animado">
+        TENHA UM BOM DIA DE TRABALHO<BR>
+<BR>
+   NÃO ESQUEÇA DE ABRIR CA
+
+
+
+
+
+
     </div>
+
 </body>
 </html>
+
 
