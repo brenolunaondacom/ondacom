@@ -42,9 +42,9 @@
 
         /* Estilo do quadro de recados */
         .container {
-            margin: 20px auto;
+            margin-top: 20px;
             width: 320px;
-            height: 120px;
+            height: 100px;
             background-color: #f0f8ff;
             color: #333;
             border-radius: 12px;
@@ -57,10 +57,12 @@
             position: relative;
         }
 
-        /* Estilo do texto dentro do quadro de recados */
-        .texto {
-            display: inline-block;
-            white-space: nowrap;
+        /* Área onde o texto fica rolando */
+        .texto-container {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
             animation: subir 10s linear infinite;
         }
 
@@ -74,7 +76,7 @@
             }
         }
 
-        .texto span {
+        .texto {
             font-weight: 600;
             color: #007bff;
         }
@@ -93,12 +95,11 @@
 
     <!-- Quadro de recados -->
     <div class="container">
-        <div class="texto">
-            <p><span>NÃO ESQUEÇA DE ABRIR CA</span><br><br>
-            ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02<br><br>
-            EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA<br><br>
-            <span>*****NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06*****</span>
-            </p>
+        <div class="texto-container">
+            <p class="texto">NÃO ESQUEÇA DE ABRIR CA</p>
+            <p>ATENÇÃO RS: TREINAMENTO GERAL MEDICINA DO TRABALHO DIA 26/02</p>
+            <p>EQUIPE PREVENTIVA: NÃO ESQUEÇA DO TESTE DE FUMAÇA</p>
+            <p class="texto">*****NÃO ESQUEÇA DE ASSINAR O PONTO NO PMÓVEL, PRAZO ATÉ 02/06*****</p>
         </div>
     </div>
 </body>
