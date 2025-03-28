@@ -16,7 +16,6 @@
             padding-left: 20px;
             gap: 20px;
             font-family: 'Arial', sans-serif;
-            overflow: hidden; /* Previne a rolagem */
         }
 
         .botao {
@@ -41,34 +40,49 @@
             transform: scale(1.05);
         }
 
-        /* Estilo do texto animado */
-        .texto-animado {
-            position: absolute;
-            bottom: 10px; /* Garante que o texto não ultrapasse a área dos botões */
-            left: 20px;
+        /* Estilo da caixa de "BOM DIA" */
+        .caixa-bom-dia {
+            display: none;
+            background-color: #ffeb3b; /* Amarelo claro */
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
             font-size: 24px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: #007bff;
-            white-space: nowrap;
-            animation: subir 10s linear infinite;
+            font-weight: bold;
+            width: 200px;
+            margin-top: 20px;
+            transition: opacity 1s ease-in-out;
         }
-
-        /* Animação para o texto subir */
-        @keyframes subir {
-            0% {
-                transform: translateY(-300%); /* Começa fora da tela, na parte inferior */
-            }
-            100% {
-                transform: translateY(-100%); /* Vai até fora da tela, na parte superior */
-            }
-        }
-
     </style>
     <script>
         function redirecionar(link) {
             window.location.href = link;
         }
+
+        function mostrarCaixa() {
+            const caixa = document.getElementById("caixaBomDia");
+
+            // Mostrar a caixa
+            caixa.style.display = "block";
+            caixa.style.opacity = "1";
+
+            // Esconder a caixa após 5 segundos
+            setTimeout(() => {
+                caixa.style.opacity = "0"; // Desaparece com um fade
+                setTimeout(() => {
+                    caixa.style.display = "none"; // Realmente esconde a caixa após o fade
+                }, 1000); // Espera o tempo do fade (1s) antes de esconder
+
+            }, 5000); // A caixa desaparece após 5 segundos visível
+        }
+
+        // Exibir a caixa imediatamente ao carregar a página
+        window.onload = function() {
+            mostrarCaixa();
+            // Iniciar o loop de 10 segundos (5s visível, 5s invisível)
+            setInterval(mostrarCaixa, 10000);
+        };
     </script>
 </head>
 <body>
@@ -77,19 +91,15 @@
     <button class="botao" onclick="redirecionar('https://www.globo.com')">Demais</button>
     <button class="botao" onclick="redirecionar('https://forms.zohopublic.com/ondacom/form/Faturas/thankyou/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54?record_perma=-RkXG3v6nLZyJo5LRf8-8XCK-LL8pHhhJnSbDFVsRG4')">Zoho</button>
 
-    <!-- Texto animado -->
-    <div class="texto-animado">
-        TENHA UM BOM DIA DE TRABALHO<BR>
-<BR>
-   NÃO ESQUEÇA DE ABRIR CA
+    <!-- Caixa de Bom Dia -->
+    <div id="caixaBomDia" class="caixa-bom-dia">
+      não esqueça de abrir CA
+<br><br>
 
-
-
-
+ATENÇÃO TIME DE PREVENTIVAS:  não esqueça<br> do teste <br> de<br> fumaça<br>
 
 
     </div>
 
 </body>
 </html>
-
