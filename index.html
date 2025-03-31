@@ -72,14 +72,14 @@
             position: absolute;
             width: 100%;
             animation: scrollUp 10s linear infinite;
-            text-align: left; /* Alinhamento à esquerda adicionado */
-            padding-left: 10px; /* Espaçamento à esquerda para melhor legibilidade */
+            text-align: left;
+            padding-left: 10px;
         }
 
         .reminder-text h2 {
-            text-align: left; /* Alinhamento do h2 à esquerda */
-            margin-left: 0; /* Remove margem padrão */
-            padding-left: 0; /* Remove padding padrão */
+            text-align: left;
+            margin-left: 0;
+            padding-left: 0;
         }
 
         @keyframes scrollUp {
@@ -121,21 +121,27 @@
 <body>
     <div class="container">
         <div class="button-section">
-            <button class="button preventivas">Preventivas</button>
-            <button class="button faturas">Faturas</button>
-            <button class="button vistorias">Vistorias</button>
+            <button class="button preventivas" onclick="showPopup()">Preventivas</button>
+            <a href="https://forms.zohopublic.com/ondacom/form/Faturas/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54" class="button faturas" target="_blank">Faturas</a>
+            <a href="https://forms.zohopublic.com/ondacom/form/Vistoriaparamelhoriasv2/formperma/SxfzUz1Eio_WLjcfbyYFD3hpbZyOyNrguoYKWl3BYx4" class="button vistorias" target="_blank">Vistorias</a>
         </div>
         <h2>Lembretes</h2>
         <div class="reminders">
             <div class="reminder-text">
-                <h2>Abertura de CA é <br>de caráter</h2>
+                <h2>Abertura de CA é de caráter</h2>
                 <h2>obrigatório!!!!</h2>
             </div>
         </div>
     </div>
     
-    <a href="https://wa.me/SEUNUMERO" class="whatsapp-icon" target="_blank">
+    <a href="https://wa.me/554195620152" class="whatsapp-icon" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        function showPopup() {
+            alert('Disponível em Breve');
+        }
+    </script>
 </body>
 </html>
