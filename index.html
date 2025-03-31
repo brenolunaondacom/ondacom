@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,6 +42,9 @@
             cursor: pointer;
             color: white;
             transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: block;
         }
 
         .button:hover {
@@ -68,6 +72,14 @@
             position: absolute;
             width: 100%;
             animation: scrollUp 10s linear infinite;
+            text-align: left; /* Alinhamento à esquerda adicionado */
+            padding-left: 10px; /* Espaçamento à esquerda para melhor legibilidade */
+        }
+
+        .reminder-text h2 {
+            text-align: left; /* Alinhamento do h2 à esquerda */
+            margin-left: 0; /* Remove margem padrão */
+            padding-left: 0; /* Remove padding padrão */
         }
 
         @keyframes scrollUp {
@@ -80,6 +92,30 @@
             margin-bottom: 15px;
             text-align: center;
         }
+        
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+        }
+        
+        .whatsapp-icon:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -87,16 +123,19 @@
         <div class="button-section">
             <button class="button preventivas">Preventivas</button>
             <button class="button faturas">Faturas</button>
-           <a href="sua-pagina.html" class="button vistorias">Vistorias</a>
-
+            <button class="button vistorias">Vistorias</button>
         </div>
         <h2>Lembretes</h2>
         <div class="reminders">
             <div class="reminder-text">
-                <h2>Abertura de CA é de caráter</h2>
-                <h2> obrigatório!!!! </h2>
+                <h2>Abertura de CA é <br>de caráter</h2>
+                <h2>obrigatório!!!!</h2>
             </div>
         </div>
     </div>
+    
+    <a href="https://wa.me/SEUNUMERO" class="whatsapp-icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>
