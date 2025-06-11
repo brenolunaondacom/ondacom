@@ -1,38 +1,155 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Em Construção</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    h1 {
-      color: #333;
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
 
-    img {
-      width: 250px;
-      max-width: 80%;
-    }
-  </style>
+        .button-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .preventivas { background-color: #4CAF50; }
+        .faturas { background-color: #2196F3; }
+        .vistorias { background-color: #9C27B0; }
+        .notas { background-color: #FF9800; }
+
+        .reminders {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .reminder-text {
+            position: absolute;
+            width: 100%;
+            animation: scrollUp 10s linear infinite;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .reminder-text h2 {
+            text-align: left;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        @keyframes scrollUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 60px; /* <-- botão mais para cima */
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .whatsapp-icon:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
-  <h1>🚧 Em Construção 🚧</h1>
-  <!-- Substitua o link abaixo por outra imagem, se desejar -->
-  <img src="https://cdn-icons-png.flaticon.com/512/619/619034.png" alt="Página em construção" />
+    <div class="container">
+        <div class="button-section">
+            <!-- <button class="button preventivas" onclick="showPopup()">Preventivas</button>-->
+            <a href="https://forms.zohopublic.com/ondacom/form/Faturas/formperma/OBtwEXhlmPPpXObz7hp3mnsEtTYEFYSN5h2Ziks6A54" class="button faturas" target="_blank">Faturas</a>
+            <a href="https://forms.zohopublic.com/ondacom/form/Vistoriaparamelhoriasv2/formperma/SxfzUz1Eio_WLjcfbyYFD3hpbZyOyNrguoYKWl3BYx4" class="button vistorias" target="_blank">Vistorias</a>
+            <a href="https://forms.gle/9xBXs4HpBz5UgGbW6" class="button notas" target="_blank">Notas Fiscais</a>
+        </div>
+        <h2>Lembretes</h2>
+        <div class="reminders">
+            <div class="reminder-text">
+                <h2>Abertura de CA é de caráter</h2>
+                <h2>obrigatório!<br>
+                
+                                
+                
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão do WhatsApp -->
+    <a href="https://wa.me/554195620152" class="whatsapp-icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Função para exibir o pop-up ao clicar no botão "Preventivas"
+        function showPopup() {
+            alert('Disponível em Breve');
+        }
+    </script>
 </body>
 </html>
